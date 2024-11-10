@@ -21,7 +21,7 @@ export function getVictoryMessage(lastAddress: string, compressedWif: string, un
 
 		P.S. It would be great if you could throw us a percentage)
 	`
-	
+
 	return VICTORY_MESSAGE
 		.replace('{lastAddress}', lastAddress)
 		.replace('{compressedWif}', compressedWif)
