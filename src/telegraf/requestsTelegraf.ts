@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
 
 import { Chat } from 'telegraf/typings/core/types/typegram'
+import { TELEGRAM_LINK } from '../config/const'
 
 dotenv.config()
 
@@ -22,7 +23,7 @@ export async function sendMessageToUser(telegramId: number, message: string): Pr
 }
 
 export function isTelegramLink(url: string): boolean {
-	return url.startsWith('https://t.me/')
+	return url.startsWith(TELEGRAM_LINK)
 }
 
 export function parseTelegramUrl(url: string): string {

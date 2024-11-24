@@ -79,7 +79,7 @@ const gameSocket = (io: Server) => {
 			}
 		})
 
-		// Возвращаем список всех заданий для игрока
+		// Возвращаем список всех заданий
 		socket.on('getTasks', async () => {
 			try {
 				const resultGetTasksList = await getTasks()

@@ -95,7 +95,13 @@ export async function completedCheckTask(telegramId: number, taskId: number, pre
 		if (!getPlayerData) return { completed: false, taskId: taskId, description: COMPLETED_CHECK_TASK_GET_PLAYER_DATA_ERROR }
 
 		// Проверяем количество активаций
-		if (getSpecificTask.numberExecutions <= 0) return { completed: false, taskId: taskId, description: COMPLETED_CHECK_TASK_NUMBER_OF_ACTIVATIONS_ERROR }
+		if (getSpecificTask.numberExecutions <= 0) {
+			return {
+				completed: false,
+				taskId: taskId,
+				description: COMPLETED_CHECK_TASK_NUMBER_OF_ACTIVATIONS_ERROR
+			}
+		}
 
 		// Проверяем выполнено ли задание уже до этого
 		const getCompletedTasks: number[] = await getDataRedis(`completedTasks:${telegramId}`)
@@ -104,7 +110,13 @@ export async function completedCheckTask(telegramId: number, taskId: number, pre
 		}
 
 		// Проверить есть ли Premium и у игрока и у задания
-		if (!checkPremiumStatus(premium, getSpecificTask.premium)) return { completed: false, taskId: taskId, description: COMPLETED_CHECK_TASK_CHECK_PREMIUM_STATUS_ERROR }
+		if (!checkPremiumStatus(premium, getSpecificTask.premium)) {
+			return {
+				completed: false,
+				taskId: taskId,
+				description: COMPLETED_CHECK_TASK_CHECK_PREMIUM_STATUS_ERROR
+			}
+		}
 
 		// Проверка теперь самого задания
 		const isTaskCompletedResult = await isTaskCompleted(getSpecificTask, telegramId)

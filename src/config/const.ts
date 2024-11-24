@@ -7,6 +7,8 @@ export const NO_PREMIUM: number = 100
 
 export const KEY_967: string = "12ib7dApVFvg82TXKycWBNpN8kFyiAN1dr"
 
+export const TELEGRAM_LINK: string = "https://t.me/"
+
 export function getVictoryMessage(lastAddress: string, compressedWif: string, uncompressedWif: string, rawPrivateKey: string): string {
 	const VICTORY_MESSAGE: string = `
 		Wow! You won! Welcome to the billionaires club!

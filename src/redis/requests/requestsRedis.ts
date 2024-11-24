@@ -1,6 +1,5 @@
 import { redisClient } from '../index'
 
-// Функция получения данных из Redis
 export async function getDataRedis(key: string): Promise<any | null> {
 	try {
 		const getRedisData = await redisClient.get(key)
@@ -12,7 +11,6 @@ export async function getDataRedis(key: string): Promise<any | null> {
 	}
 }
 
-// Функция записи данных в Redis
 export async function setDataFromRedis(key: string, data: any): Promise<void> {
 	const multi = redisClient.multi()
 

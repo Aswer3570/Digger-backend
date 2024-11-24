@@ -10,7 +10,7 @@
 		"prod-build": "tsc && cross-env NODE_ENV=production node ./dist/index.js"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "aswer3570",
 	"license": "ISC",
 	"devDependencies": {
 		"@types/express": "^4.17.21",
